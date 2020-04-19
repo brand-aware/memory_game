@@ -59,4 +59,8 @@ public class CommonBoard extends ConfigBoard{
 	protected boolean harderFlag = false;
 	protected boolean randomizeFlag = false;
 	
+	// brand-aware lib files
+	protected final String PRODUCT_NAME = "memory_game";
+	protected String userDir;
+	
 }

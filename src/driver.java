@@ -12,12 +12,12 @@ public class driver {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if(args.length != 1){
+		if(args.length != 2){
 			System.out.println("java driver <rootDir> <user dir>");
 		}
 		
 		Properties properties = new Properties(args[0]);
-		Board board = new Board(properties);
+		Board board = new Board(properties, args[1]);
 		board.init();
 		
 		Thread thread = new Thread(new Mover(board));

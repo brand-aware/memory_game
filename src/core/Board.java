@@ -40,10 +40,12 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 	private ButtonHandler handler;
 	private MenuHandler menuHandler;
 		
-	public Board(Properties p) {
+	public Board(Properties p, String usrDir) {
 		board = this;
 		properties = p;
-		balogger = new BALoggerUtil(properties.getRootDir(), "memory_game");
+		userDir = usrDir;
+		
+		balogger = new BALoggerUtil(properties.getRootDir(), PRODUCT_NAME, userDir);
 		handler = new ButtonHandler();
 		menuHandler = new MenuHandler();
 	}
@@ -168,6 +170,18 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		desktopPane.moveToFront(left);
 		desktopPane.moveToFront(bottom1);
 		desktopPane.moveToFront(bottom2);
+		
+		// initialize promoted difficulty for roll-out
+		normal.setSelected(false);
+		hard.setSelected(false);
+		harder.setSelected(false);
+		randomNormal.setSelected(true);
+		randomHard.setSelected(false);
+		randomHarder.setSelected(false);
+		normalFlag = true;
+		hardFlag = false;
+		harderFlag = false;
+		randomizeFlag = true;
 		
 		boardPage.add(desktopPane);
 		boardPage.pack();
@@ -481,6 +495,16 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
+	}
+
+	@Override
+	public int getFrameHeight() {
+		return 539 + 166 + 28;
+	}
+
+	@Override
+	public int getFrameWidth() {
+		return 833;
 	}
 	
 	
