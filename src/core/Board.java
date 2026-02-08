@@ -30,7 +30,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import balogging.BALoggerUtil;
 import highscores.HighScores;
 import highscores.IBoardOutline;
 import highscores.hsProperties;
@@ -40,12 +39,10 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 	private ButtonHandler handler;
 	private MenuHandler menuHandler;
 		
-	public Board(Properties p, String usrDir) {
+	public Board(Properties p) {
 		board = this;
 		properties = p;
-		userDir = usrDir;
 		
-		balogger = new BALoggerUtil(properties.getRootDir(), PRODUCT_NAME, userDir);
 		handler = new ButtonHandler();
 		menuHandler = new MenuHandler();
 	}
@@ -244,7 +241,6 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 					}
 				}else if(event.getSource() == middle){
 					order = new ArrayList<Integer>();
-					balogger.startTimer();
 					doMove();
 					showOrder = true;
 				}

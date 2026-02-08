@@ -17,13 +17,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import balogging.BALoggerUtil;
 import highscores.IBoardOutline;
 
 public class CommonBoard extends ConfigBoard{
 	
 	protected IBoardOutline board = null;
-	protected BALoggerUtil balogger;
 	protected JFrame boardPage = null;
 	protected Properties properties;
 	protected JDesktopPane desktopPane;
@@ -61,6 +59,5 @@ public class CommonBoard extends ConfigBoard{
 	
 	// brand-aware lib files
 	protected final String PRODUCT_NAME = "memory_game";
-	protected String userDir;
 	
 }
