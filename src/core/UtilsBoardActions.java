@@ -21,7 +21,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir() , board);
+			NameInput nameInput = new NameInput(properties.getRootDir() , board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
@@ -49,7 +49,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir() , board);
+			NameInput nameInput = new NameInput(properties.getRootDir() , board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
@@ -77,7 +77,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir() , board);
+			NameInput nameInput = new NameInput(properties.getRootDir() , board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
@@ -105,7 +105,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir() , board);
+			NameInput nameInput = new NameInput(properties.getRootDir() , board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
@@ -134,7 +134,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir() , board);
+			NameInput nameInput = new NameInput(properties.getRootDir() , board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
@@ -162,7 +162,7 @@ public class UtilsBoardActions extends CommonBoard{
 			animateButton = false;
 			balogger.stopTimer();
 			balogger.logScore("", "" + size);
-			NameInput nameInput = new NameInput(properties.getRootDir(), board);
+			NameInput nameInput = new NameInput(properties.getRootDir(), board, PRODUCT_NAME, userDir);
 			try {
 				nameInput.setDescending();
 				nameInput.init(size - 1);
