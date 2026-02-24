@@ -328,7 +328,13 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 						JOptionPane.INFORMATION_MESSAGE, 
 						new ImageIcon(properties.getImageDir() + File.separator + "company.png"));
 			}else if(event.getSource() == about){
-				
+				JOptionPane.showMessageDialog(null, 
+						"product:\nmemory_game\n\n" +
+						"member of:\nbrand-aware\n\ncontact:\n" +
+						"wontzer@hotmail.com", 
+						"about", 
+						JOptionPane.INFORMATION_MESSAGE, 
+						new ImageIcon(properties.getImageDir() + File.separator + "company.png"));
 			}
 			
 		}
