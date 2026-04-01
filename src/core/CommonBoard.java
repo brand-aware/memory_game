@@ -1,7 +1,7 @@
 /**
- * @author mike802
+ * @author wontzer
  * 
- * product of - ???
+ * product of: brand-aware
  * 2017
  */
 package core;
@@ -28,12 +28,14 @@ public class CommonBoard extends ConfigBoard{
 	protected ConcurrentHashMap<Integer, JButton> lookupTable2 = new ConcurrentHashMap<Integer, JButton>();
 	protected boolean difficult = true;
 	
+	// menu system
 	protected JMenuBar menuBar;
 	protected JMenu fileMenu, options, difficulty, help;
 	protected JMenuItem exit, rules, about;
 	protected JCheckBoxMenuItem normal, hard, harder, randomHard, randomHarder;
 	protected JCheckBoxMenuItem randomNormal;
 	
+	// game buttons
 	protected JButton left = null;
 	protected JButton right = null;
 	protected JButton top1 = null;
@@ -42,6 +44,7 @@ public class CommonBoard extends ConfigBoard{
 	protected JButton bottom2 = null;
 	protected JButton middle = null;
 
+	//gameplay mechanics - allows for varied gameplay
 	protected ConcurrentHashMap<JButton, Integer> lookupTable = new ConcurrentHashMap<JButton, Integer>();
 	protected ArrayList<Integer> order = new ArrayList<Integer>();
 	protected int count = 0;
@@ -52,6 +55,7 @@ public class CommonBoard extends ConfigBoard{
 	protected int buttonCounter = 0;
 	protected int selected = -1;
 	
+	//difficultly selection
 	protected boolean normalFlag = true;
 	protected boolean hardFlag = false;
 	protected boolean harderFlag = false;

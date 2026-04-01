@@ -1,6 +1,8 @@
 /**
- * @author mike802
+ * @author wontzer
  * @version 1.0 - 2/26/2013
+ * 
+ * brand-aware
  */
 package core;
 
@@ -23,6 +25,7 @@ public class Properties {
 		return rootDir;
 	}
 	
+	//game uses images for "light up" animations
 	public String getRedPath(){
 		return imageDir + File.separator + "red.png";
 	}

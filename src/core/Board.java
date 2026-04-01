@@ -1,6 +1,7 @@
 /**
- * @author mike802
+ * @author wontzer
  * 
+ * brand-aware
  * ??? - 2013
  */
 package core;
