@@ -14,7 +14,13 @@ import highscores.NameInput;
 
 public class UtilsBoardActions extends CommonBoard{
 	
-	
+	/**
+	 * If top left button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void top1() throws IOException{
 		if(!isCorrect(top1)){
 			int size = order.size();
@@ -41,6 +47,13 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * If top right button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void top2() throws IOException{
 		if(!isCorrect(top2)){
 			int size = order.size();
@@ -67,6 +80,13 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * If left side button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void left() throws IOException{
 		if(!isCorrect(left)){
 			int size = order.size();
@@ -93,6 +113,13 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * If right side button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void right() throws IOException{
 		if(!isCorrect(right)){
 			int size = order.size();
@@ -120,6 +147,13 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * If bottom left button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void bottom1() throws IOException{
 		if(!isCorrect(bottom1)){
 			int size = order.size();
@@ -146,6 +180,13 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * If bottom right button was found to have been pressed,
+	 * determines is high score screen should be loaded.
+	 * If correct, triggers game animation to play.
+	 * 
+	 * @throws IOException
+	 */
 	protected final void bottom2() throws IOException {
 		if(!isCorrect(bottom2)){
 			int size = order.size();
@@ -172,12 +213,18 @@ public class UtilsBoardActions extends CommonBoard{
 		}
 	}
 	
+	/**
+	 * Main gameplay device.  Approperiate move
+	 * selected based on difficult level
+	 */
 	protected void doMove(){
 		if(normalFlag){
+			// randomly chooses new button to press at end of sequence
 			double random = Math.random();
 			int index = (int) (random * BUTTONS);
 			order.add(index);
 		}else if(hardFlag){
+			// adds two buttons to sequence
 			double random = Math.random();
 			int index = (int) (random * BUTTONS);
 			order.add(index);
@@ -188,6 +235,7 @@ public class UtilsBoardActions extends CommonBoard{
 			double random = Math.random();
 			int index = (int) (random * BUTTONS);
 			order.add(index);
+			// every five correct sequences, entire sequence is changed
 			if(count > 0 && count % 5 == 0){
 				for(int x = 0; x < 5; x++){
 					random = Math.random();
@@ -199,6 +247,12 @@ public class UtilsBoardActions extends CommonBoard{
 		showOrder = true;
 	}
 	
+	/**
+	 * Determines if correct button in squence was pressed
+	 * 
+	 * @param JButton button
+	 * @return boolean correct
+	 */
 	private boolean isCorrect(JButton button){
 		Integer index = lookupTable.get(button);
 		int size = order.size();
@@ -211,6 +265,9 @@ public class UtilsBoardActions extends CommonBoard{
 		return false;
 	}
 	
+	/**
+	 * Initializes button labels
+	 */
 	private void reloadButtons(){
 		createLookupTable();
 		top1.setText(getButtonText(0));
@@ -221,6 +278,9 @@ public class UtilsBoardActions extends CommonBoard{
 		bottom2.setText(getButtonText(5));
 	}
 	
+	/**
+	 * Associates buttons with "labels"
+	 */
 	protected void createLookupTable(){
 		lookupTable.put(top1, 0);
 		lookupTable.put(top2, 1);
@@ -237,6 +297,12 @@ public class UtilsBoardActions extends CommonBoard{
 		lookupTable2.put(5, bottom2);
 	}
 	
+	/**
+	 * Labels for buttons
+	 * 
+	 * @param int index
+	 * @return String label
+	 */
 	protected String getButtonText(int index){
 		if(index == 0){
 			return "blue";
@@ -254,6 +320,9 @@ public class UtilsBoardActions extends CommonBoard{
 		return null;
 	}
 	
+	/**
+	 * Disables all GUI elements
+	 */
 	public void disable(){
 		fileMenu.setEnabled(false);
 		options.setEnabled(false);
