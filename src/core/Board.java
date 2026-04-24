@@ -48,6 +48,10 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		menuHandler = new MenuHandler();
 	}
 	
+	/**
+	 * Initializes GUI and sets coordinates for all GUI elements.
+	 * JDesktopPane used for layered images.
+	 */
 	private void createGUI(){
 		boardPage = new JFrame(HEADER);
 		boardPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -173,6 +177,7 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		normal.setSelected(false);
 		hard.setSelected(false);
 		harder.setSelected(false);
+		// changes layout every time but not pattern
 		randomNormal.setSelected(true);
 		randomHard.setSelected(false);
 		randomHarder.setSelected(false);
@@ -186,6 +191,12 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		boardPage.setVisible(true);
 	}
 	
+	/**
+	 * Determines which game button was pressed, looks up selected
+	 * element, and performs elements slection action.  If middle
+	 * button is selected a new game is started.  No buttons may be
+	 * pressed while animation is playing.
+	 */
 	private class ButtonHandler implements ActionListener{
 
 		@Override
@@ -249,6 +260,11 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 	
+	/**
+	 * Handles displaying rules, about, and selection of game
+	 * difficulties.  When difficulty is selected, all associated
+	 * settings are either set or unset as required by application.
+	 */
 	private class MenuHandler implements ActionListener{
 
 		@Override
@@ -341,6 +357,11 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 	
+	/**
+	 * Main animation method for application.  Animation action is
+	 * either the playing of the playback pattern at a human consumable 
+	 * speed or highlighting the single button pressed for effect.
+	 */
 	public void move(){
 		if(showOrder){
 			if(!animateButton){
@@ -361,13 +382,28 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 				buttonCounter = 0;
 			}else if(buttonCounter > 0 && buttonCounter <= 5){
 				buttonCounter++;
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}else if(buttonCounter == 0){
 				lookupTable2.get(selected).setBackground(getColor(selected));
 				buttonCounter++;
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
 	
+	/**
+	 * Does the actual playback of the pattern.  If randomization
+	 * is required, that step is performed here.  Inserts sleeps
+	 * to make button highlighting visible to the human eye.
+	 */
 	private void playOrder(){
 		JButton button;
 		if(randomizeFlag){
@@ -400,6 +436,11 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 	
+	/**
+	 * All button elements are stored in memory and when randomization
+	 * is required, that is done here.  Simply assigns a new order for
+	 * all GUI buttons.
+	 */
 	private void randomizeLookupTable(){
 		Collection<Integer> selectedButtons = new TreeSet<Integer>();
 		Map<Integer, JButton> changes = new TreeMap<Integer, JButton>();
@@ -420,6 +461,11 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 	
+	/**
+	 * Lookup table for game colors.
+	 * 
+	 * @param JButton button
+	 */
 	private void setColor(JButton button){
 		if(button.getText().compareTo("blue") == 0){
 			button.setBackground(Color.BLUE);
@@ -436,6 +482,12 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 	
+	/**
+	 * Color lookup table for button lookup table
+	 * 
+	 * @param int buttonIndex
+	 * @return Color color
+	 */
 	private Color getColor(int buttonIndex){
 		if(buttonIndex == 0){
 			return Color.BLUE;
@@ -453,6 +505,9 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		return null;
 	}
 	
+	/**
+	 * Loads GUI
+	 */
 	public void init(){
 		if(!initialized){
 			createGUI();
@@ -461,6 +516,10 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		createLookupTable();
 	}
 
+	/**
+	 * Disables all GUI elements for when high score
+	 * screen is displayed.
+	 */
 	@Override
 	public void enable() {
 		fileMenu.setEnabled(true);
@@ -476,6 +535,9 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		middle.setEnabled(true);
 	}
 
+	/**
+	 * Loads high score screen without loading a high score.
+	 */
 	@Override
 	public void initHighScores(hsProperties p) {
 		HighScores highScores = new HighScores(this);
@@ -488,6 +550,9 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}
 	}
 
+	/**
+	 * Loads high score screen with a high score to display.
+	 */
 	@Override
 	public void initHighScores(String name, String rank, int score, hsProperties p) {
 		HighScores highScores = new HighScores(this);
@@ -500,11 +565,17 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		}		
 	}
 
+	/**
+	 * Application height for centering high score screen.
+	 */
 	@Override
 	public int getFrameHeight() {
 		return 539 + 166 + 28;
 	}
 
+	/**
+	 * Application width for centering high score screen.
+	 */
 	@Override
 	public int getFrameWidth() {
 		return 833;
