@@ -57,15 +57,14 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		boardPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		boardPage.setResizable(false);
 		boardPage.setLocation(150, 50);
-		String imageDir = properties.getImageDir();
-		Image icon = Toolkit.getDefaultToolkit().getImage(imageDir + File.separator + "company.png");
+		Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/img/company.png"));
 		boardPage.setIconImage(icon);
 		boardPage.setPreferredSize(new Dimension(833, 539 + 166 + 28));
 		
 		int titlex = 674;
 		int titley = 136;
 		JLabel title = new JLabel();
-		ImageIcon titleImage = new ImageIcon(imageDir + File.separator + "logo.png");
+		ImageIcon titleImage = new ImageIcon(getClass().getResource("/img/logo.png"));
 		title.setIcon(titleImage);
 		int titlexoffset = (833 / 2) - (674 / 2); 
 		title.setBounds(titlexoffset, 15, titlex, titley);
@@ -73,7 +72,7 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 0, 833, 510 + 166 + 28);
 		JLabel background = new JLabel();
-		ImageIcon backgroundImage = new ImageIcon(properties.getImageDir() + File.separator + "background.png");
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/img/background.png"));
 		background.setIcon(backgroundImage);
 		background.setBounds(0, 0, 833, 510 + 166 + 28);
 		
@@ -343,7 +342,7 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 						+ "divisible by 5 (5, 10, 15, 20, etc)", 
 						"game rules", 
 						JOptionPane.INFORMATION_MESSAGE, 
-						new ImageIcon(properties.getImageDir() + File.separator + "company.png"));
+						new ImageIcon(getClass().getResource("/img/company.png")));
 			}else if(event.getSource() == about){
 				JOptionPane.showMessageDialog(null, 
 						"product:\nmemory_game\n\n" +
@@ -351,9 +350,8 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 						"wontzer@hotmail.com", 
 						"about", 
 						JOptionPane.INFORMATION_MESSAGE, 
-						new ImageIcon(properties.getImageDir() + File.separator + "company.png"));
+						new ImageIcon(getClass().getResource("/img/company.png")));
 			}
-			
 		}
 	}
 	

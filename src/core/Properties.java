@@ -6,43 +6,38 @@
  */
 package core;
 
-import java.io.File;
+import java.net.URL;
 
 public class Properties {
 	
-	private String imageDir;
 	private String rootDir;
 
 	public Properties(String root){
 		rootDir = root;
-		imageDir = rootDir + File.separator + "img";
 	}
 	
-	public String getImageDir(){
-		return imageDir;
-	}
 	public String getRootDir(){
 		return rootDir;
 	}
 	
 	//game uses images for "light up" animations
-	public String getRedPath(){
-		return imageDir + File.separator + "red.png";
+	public URL getRedPath(){
+		return getClass().getResource("/img/red.png");
 	}
-	public String getYellowPath(){
-		return imageDir + File.separator + "yellow.png";
+	public URL getYellowPath(){
+		return getClass().getResource("/imgyellow.png");
 	}
-	public String getGreenPath(){
-		return imageDir + File.separator + "green.png";
+	public URL getGreenPath(){
+		return getClass().getResource("/img/green.png");
 	}
-	public String getBluePath(){
-		return imageDir + File.separator + "blue.png";
+	public URL getBluePath(){
+		return getClass().getResource("/img/blue.png");
 	}
-	public String getBlackPath(){
-		return imageDir + File.separator + "black.png";
+	public URL getBlackPath(){
+		return getClass().getResource("/img/black.png");
 	}
-	public String getOrangePath(){
-		return imageDir + File.separator + "orange.png";
+	public URL getOrangePath(){
+		return getClass().getResource("/img/orange.png");
 	}
 	
 }
