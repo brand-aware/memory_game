@@ -4,7 +4,7 @@
  * brand-aware
  * ??? - 2013
  */
-package com.matching_game.core;
+package com.memory_game.core;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -57,14 +57,14 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		boardPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		boardPage.setResizable(false);
 		boardPage.setLocation(150, 50);
-		Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/matching_game/img/company.png"));
+		Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/memory_game/img/company.png"));
 		boardPage.setIconImage(icon);
 		boardPage.setPreferredSize(new Dimension(833, 539 + 166 + 28));
 		
 		int titlex = 674;
 		int titley = 136;
 		JLabel title = new JLabel();
-		ImageIcon titleImage = new ImageIcon(getClass().getResource("/com/matching_game/img/logo.png"));
+		ImageIcon titleImage = new ImageIcon(getClass().getResource("/com/memory_game/img/logo.png"));
 		title.setIcon(titleImage);
 		int titlexoffset = (833 / 2) - (674 / 2); 
 		title.setBounds(titlexoffset, 15, titlex, titley);
@@ -72,7 +72,7 @@ public class Board extends UtilsBoardActions implements IBoardOutline{
 		desktopPane = new JDesktopPane();
 		desktopPane.setBounds(0, 0, 833, 510 + 166 + 28);
 		JLabel background = new JLabel();
-		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/com/matching_game/img/background.png"));
+		ImageIcon backgroundImage = new ImageIcon(getClass().getResource("/com/memory_game/img/background.png"));
 		background.setIcon(backgroundImage);
 		background.setBounds(0, 0, 833, 510 + 166 + 28);
 		

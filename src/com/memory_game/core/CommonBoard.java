@@ -4,7 +4,7 @@
  * product of: brand-aware
  * 2017
  */
-package com.matching_game.core;
+package com.memory_game.core;
 
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;

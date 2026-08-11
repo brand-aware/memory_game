@@ -4,9 +4,9 @@
  * 
  * brand-aware
  */
-import com.matching_game.core.Board;
-import com.matching_game.core.Mover;
-import com.matching_game.core.Properties;
+import com.memory_game.core.Board;
+import com.memory_game.core.Mover;
+import com.memory_game.core.Properties;
 
 public class driver {
 
