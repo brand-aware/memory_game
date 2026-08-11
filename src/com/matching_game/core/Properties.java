@@ -4,7 +4,7 @@
  * 
  * brand-aware
  */
-package core;
+package com.matching_game.core;
 
 import java.net.URL;
 
@@ -22,22 +22,22 @@ public class Properties {
 	
 	//game uses images for "light up" animations
 	public URL getRedPath(){
-		return getClass().getResource("/img/red.png");
+		return getClass().getResource("/com/matching_game/img/red.png");
 	}
 	public URL getYellowPath(){
-		return getClass().getResource("/imgyellow.png");
+		return getClass().getResource("/com/matching_game/img/yellow.png");
 	}
 	public URL getGreenPath(){
-		return getClass().getResource("/img/green.png");
+		return getClass().getResource("/com/matching_game/img/green.png");
 	}
 	public URL getBluePath(){
-		return getClass().getResource("/img/blue.png");
+		return getClass().getResource("/com/matching_game/img/blue.png");
 	}
 	public URL getBlackPath(){
-		return getClass().getResource("/img/black.png");
+		return getClass().getResource("/com/matching_game/img/black.png");
 	}
 	public URL getOrangePath(){
-		return getClass().getResource("/img/orange.png");
+		return getClass().getResource("/com/matching_game/img/orange.png");
 	}
 	
 }

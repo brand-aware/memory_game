@@ -4,7 +4,7 @@
  * 
  * brand-aware
  */
-package core;
+package com.matching_game.core;
 
 public class Mover implements Runnable{
 	
